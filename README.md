@@ -30,15 +30,15 @@ All of the files are optional, just put which config you want copied over.
 
 ## Install
 
-Utilize the Makefile included to install configs and plugins. The commands should be run while inside the docker container `docker-compose exec server1 bash`.
+Utilize the Makefile included to install configs and plugins.
 
 
-```shell
+```bash
 // Metamod
 make install-metamod
 
 // AMX Mod X
-make install-amxmod`
+make install-amxmod
 
 // FoxBoT (TFC)
 make install-foxbot
@@ -48,7 +48,7 @@ make setup-config
 ```
 
 Or install everything:
-```shell
+```bash
 make install-all
 ```
 
