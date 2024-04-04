@@ -1,0 +1,4 @@
+servers
+build
+src/config/*
+src/plugins/*
