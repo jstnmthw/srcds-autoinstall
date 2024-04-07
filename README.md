@@ -8,8 +8,8 @@ LinuxGSM is the underlying server management software, this just set's everythin
 - [Prerequisites](#prerequisites)
 - [Config](#config)
   - [Manual](#manual)
-  - [S3 Download](#s3-download)
-- [Game Server Instances](#game-server-instances)
+  - [Automatic (S3)](#s3-download)
+- [Game Servers](#game-server)
 - [Commands](#commands)
 - [Deploy](#deploy)
   - [Launce Instances](#launch-instances)
@@ -38,6 +38,8 @@ Place your config files in the `config` directory (create it if one doesn't exit
   - botnames.cfg
   - foxbot.cfg
 
+### Manual
+
 You can create multiple directories:
 
 ```bash
@@ -50,7 +52,7 @@ You can create multiple directories:
     - users.ini
 ```
 
-### S3 Download
+### Automatic (S3)
 
 You can set `CONFIG_SETUP=s3` variable in your `.env` file to enable automatic download of your config files from an s3 bucket.
 
@@ -82,27 +84,24 @@ The directory structure of the file should mirror our root directory:
     - map_vote.amxx
 ```
 
-## Game Server Instances
+## Game Servers
 
-All instances run on docker and defined in the `docker-compose.yml`. You can define multiple instances on different ports.
+All srcds instances run on docker and defined in the `docker-compose.yml`. You can define multiple instances on different ports to run on the same host.
+
+You can browse all the supported [LinuxGSM docker images](https://hub.docker.com/repository/docker/gameservermanagers/gameserver).
 
 Take note of the container name as that's what is passed when using the `make` commands.
 
 ```yaml
 cstrike:
   image: gameservermanagers/gameserver:cstrike
-  container_name: cstrike
-  restart: unless-stopped
-  networks:
-    - cstrike_network
-  volumes:
-    - ./servers/cstrike:/data
-    - ./scripts:/scripts
-  ports:
-    - "27015:27015/tcp"
-    - "27015:27015/udp"
-    - "27020:27020/udp"
-    - "27005:27005/udp"
+  ...
+dod:
+  image: gameservermanagers/gameserver:dod
+  ...
+tfc:
+  image: gameservermanagers/gameserver:tfc
+  ...
 ```
 
 ## Commands
@@ -120,12 +119,11 @@ make install-amxmod
 make install-foxbot
 
 # Copy your configs
-make setup-config
+make setup
 ```
 
 Or install everything:
 ```bash
-# Install all
 make install-all
 ```
 

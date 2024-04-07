@@ -41,7 +41,7 @@ install-plugins: check-container check-game check-config
 	$(DOCKER_EXEC) "/scripts/install/plugins.sh $(CONTAINER) $(GAME) $(CONFIG)"
 
 # Set up the config
-setup-config: check-container
+setup: check-container
 	$(DOCKER_EXEC) "/scripts/setup.sh $(GAME) $(CONFIG) $(MOTD)"
 
 # Install all addons and config
