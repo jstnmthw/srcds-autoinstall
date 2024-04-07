@@ -39,7 +39,7 @@ cp -f /config/$GAME/$CONFIG_DIR/mapcycle.txt $INSTANCE_DIR/mapcycle.txt
 
 # Declare the config files to copy
 declare -A files=(
-    ["server.cfg"]="/tfcserver.cfg"
+    ["server.cfg"]="/${GAME}server.cfg"
     ["motd.txt"]="/motd.txt"
     ["users.ini"]="/addons/amxmodx/configs/users.ini"
     ["amxx.cfg"]="/addons/amxmodx/configs/amxx.cfg"
