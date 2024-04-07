@@ -64,14 +64,8 @@ In order to download from S3 you must set the appropriate AWS Cli credentials in
 **Note**: This script will run on the host machine. Which means AWS Cli must be installed.
 
 ```bash
-CONFIG_SETUP=s3
-
-S3_BUCKET=your-bucket
-S3_FILE_PATH=/path/to/file
-
-AWS_REGION=
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
+# Manual or Auto
+CONFIG_SETUP=auto
 ```
 
 The directory structure of the file should mirror our root directory:
@@ -107,20 +101,28 @@ tfc:
 
 ## Commands
 
-Utilize the Makefile included to install configs and plugins.
+Utilize the Makefile included to install configs and plugins. 
+
+Pass your continer, game and config folder name to the make commands:
+
+- `CONTAINER=tfc`
+- `GAME=tfc`
+- `CONFIG=classic`
+
+Run the following commands in your root directory:
 
 ```bash
 # Metamod
-make install-metamod
+make install-metamod CONTAINER=tfc GAME=tfc CONFIG=classic
 
 # AMX Mod X
-make install-amxmod
+make install-amxmod CONTAINER=tfc GAME=tfc CONFIG=classic
 
 # FoxBoT (TFC)
-make install-foxbot
+make install-foxbot CONTAINER=tfc GAME=tfc CONFIG=classic
 
 # Copy your configs
-make setup
+make setup CONTAINER=tfc1 GAME=tfc CONFIG=classic
 ```
 
 Or install everything:
