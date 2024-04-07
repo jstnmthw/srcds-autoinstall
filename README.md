@@ -57,7 +57,7 @@ You can create multiple directories:
 
 You can set `CONFIG_SETUP=s3` variable in your `.env` file to enable automatic download of your config files from an s3 bucket.
 
-Supported files: `.zip`, `.gzip` or `.tar`.
+Supported files: `.zip`, or `.tar.gz`
 
 In order to download from S3 you must set the appropriate AWS Cli credentials in your `.env` as well.
 
