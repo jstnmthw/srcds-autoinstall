@@ -1,36 +1,21 @@
 version: "3.8"
 
 services:
-  tfc_1:
+  tfc1:
     image: gameservermanagers/gameserver:tfc
-    container_name: tfc_1
+    container_name: tfc1
     restart: unless-stopped
     networks:
-      - tfc_network_1
+      - tfc1_network
     volumes:
-      - ./servers/tfc_1:/data
-      - ./src:/src
+      - ./servers/tfc1:/data
+      - ./scripts:/scripts
       - ./build:/build
     ports:
       - "27015:27015/tcp"
       - "27015:27015/udp"
       - "27020:27020/udp"
       - "27005:27005/udp"
-  tfc_2:
-    image: gameservermanagers/gameserver:tfc
-    container_name: tfc_2
-    restart: unless-stopped
-    networks:
-      - tfc_network_2
-    volumes:
-      - ./servers/tfc_2:/data
-      - ./src:/src
-      - ./build:/build
-    ports:
-      - "27016:27016/tcp"
-      - "27016:27016/udp"
-      - "27021:27020/udp"
-      - "27006:27006/udp"
+
 networks:
-  tfc_network_1:
-  tfc_network_2:
+  tfc1_network:

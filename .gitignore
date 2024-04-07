@@ -1,4 +1,4 @@
 servers
 build
-src/config
-src/plugins
+config
+plugins
