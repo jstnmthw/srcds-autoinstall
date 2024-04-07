@@ -140,7 +140,10 @@ docker-compose up -d;
 
 The idea here is when launching a spot instance for the first tiem, pull this repo, copy your configs to the appropriate locations and run the make commands through docker.
 
-## TODO:
+## Contributing
 
-- Use AWS S3 cli tool to pull the custom configs automatically.
-- Refactor folder structure.
+See our [contributing](CONTRIBUTING.md) guidelines.
+
+## License
+
+See our [licensing](LICENSE.md) information.
