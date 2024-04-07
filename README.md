@@ -43,6 +43,8 @@ Supported files: `.zip`, `.gzip` or `.tar`.
 
 In order to download from S3 you must set the appropriate AWS Cli credentials in your `.env` as well.
 
+**Note**: This script will run on the host machine. Which means AWS Cli must be installed.
+
 ```bash
 CONFIG_SETUP=s3
 
