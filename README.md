@@ -4,6 +4,22 @@ If you like to host your own half life dedicated servers on linux, this
 software can automatically deploy multiple servers each with their own config and plugins.
 LinuxGSM is the underlying server management software, this just set's everything up. Perfect for using in conjunction with AWS's Spot Instances.
 
+## Index
+- [Prerequisites](#prerequisites)
+- [Config](#config)
+  - [Manual](#manual)
+  - [S3 Download](#s3-download)
+- [Game Server Instances](#game-server-instances)
+- [Commands](#commands)
+- [Deploy](#deploy)
+  - [Launce Instances](#launch-instances)
+  - [AWS Spot Instances](#aws-spot-instances)
+- [TODO](#todo)
+
+## Prerequisites
+- Docker
+- AWS Cli (For S3 config)
+
 ## Config
 
 The following config files are supported and will be copied over to the correct directories. 
@@ -25,7 +41,6 @@ Place your config files in the `config` directory (create it if one doesn't exit
 You can create multiple directories:
 
 ```bash
-# Config structure
 - config/
   - server1/
     - server.cfg
@@ -67,10 +82,32 @@ The directory structure of the file should mirror our root directory:
     - map_vote.amxx
 ```
 
-## Install
+## Game Server Instances
+
+All instances run on docker and defined in the `docker-compose.yml`. You can define multiple instances on different ports.
+
+Take note of the container name as that's what is passed when using the `make` commands.
+
+```yaml
+cstrike:
+  image: gameservermanagers/gameserver:cstrike
+  container_name: cstrike
+  restart: unless-stopped
+  networks:
+    - cstrike_network
+  volumes:
+    - ./servers/cstrike:/data
+    - ./scripts:/scripts
+  ports:
+    - "27015:27015/tcp"
+    - "27015:27015/udp"
+    - "27020:27020/udp"
+    - "27005:27005/udp"
+```
+
+## Commands
 
 Utilize the Makefile included to install configs and plugins.
-
 
 ```bash
 # Metamod
@@ -94,13 +131,15 @@ make install-all
 
 ## Deploy
 
+### Launch Instances
+
 Just start the docker instances, the servers will start up.
 ```shell
 # Starts the instances
 docker-compose up -d;
 ```
 
-## AWS Spot Instances
+### AWS Spot Instances
 
 The idea here is when launching a spot instance for the first tiem, pull this repo, copy your configs to the appropriate locations and run the make commands through docker.
 

@@ -10,7 +10,6 @@ services:
     volumes:
       - ./servers/tfc1:/data
       - ./scripts:/scripts
-      - ./build:/build
     ports:
       - "27015:27015/tcp"
       - "27015:27015/udp"
