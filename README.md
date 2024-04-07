@@ -14,7 +14,8 @@ LinuxGSM is the underlying server management software, this just set's everythin
 - [Deploy](#deploy)
   - [Launce Instances](#launch-instances)
   - [AWS Spot Instances](#aws-spot-instances)
-- [TODO](#todo)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Prerequisites
 - Docker
