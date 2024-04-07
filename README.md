@@ -133,7 +133,6 @@ make install-all
 
 Just start the docker instances, the servers will start up.
 ```shell
-# Starts the instances
 docker-compose up -d;
 ```
 
