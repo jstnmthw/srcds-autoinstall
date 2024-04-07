@@ -44,6 +44,10 @@ install-plugins: check-container check-game check-config
 setup: check-container
 	$(DOCKER_EXEC) "/scripts/setup.sh $(GAME) $(CONFIG) $(MOTD)"
 
+# Download the server files
+download:
+	@./scripts/utils/s3-download.sh
+
 # Install all addons and config
 install-all: check-container check-game install-metamod install-amxmodx install-foxbot install-plugins setup-config
 	@echo "Info: All addons and configs have been installed successfully!"
@@ -73,4 +77,4 @@ check-config:
 restart: stop start
 
 # Phony targets
-.PHONY: stop start restart install-metamod install-amxmodx install-foxbot install-all
+.PHONY: stop start restart install-metamod install-amxmodx install-foxbot install-all download

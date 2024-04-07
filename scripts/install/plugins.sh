@@ -23,8 +23,8 @@ fi
 
 # Move plugins to the serverfiles directory
 echo "Info: Moving plugins to $AMXMODX_DIR..."
-cp -r /src/plugins/${GAME}/* $AMXMODX_DIR/plugins
+cp -r /plugins/${GAME}/* $AMXMODX_DIR/plugins
 
 # Move configs to the serverfiles directory
 echo "Info: Moving plugins configs to $AMXMODX_DIR/configs..."
-cp /src/config/${GAME}/${CONFIG_NAME}/plugins.ini $AMXMODX_DIR/configs/plugins.ini
+cp /config/${GAME}/${CONFIG_NAME}/plugins.ini $AMXMODX_DIR/configs/plugins.ini

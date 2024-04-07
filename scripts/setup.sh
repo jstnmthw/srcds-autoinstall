@@ -1,4 +1,6 @@
 #!/bin/bash -e
+source s3-download.sh
+source .env
 
 # Game argument
 GAME="${1}"
@@ -29,13 +31,21 @@ if [ -f "$INSTANCE_DIR/mapcycle.txt" ]; then
     mv $INSTANCE_DIR/mapcycle.txt $INSTANCE_DIR/mapcycle.txt.bak
 fi
 
+# Check if CONFIG_SETUP is set to auto from .env file
+if [ "$CONFIG_SETUP" == "auto" ]; then
+    # Download the config files from S3
+    download_from_s3
+fi
+
+exit;
+
 # Copy the linuxgsm config file to the serverfiles directory
 echo "Info: Copying linuxgsm config file..."
-cp -f /src/config/$GAME/$CONFIG_DIR/lgsm.cfg /data/config-lgsm/${GAME}server/${GAME}server.cfg
+cp -f /config/$GAME/$CONFIG_DIR/lgsm.cfg /data/config-lgsm/${GAME}server/${GAME}server.cfg
 
 # Copy the mapcycle.txt file to the serverfiles directory
 echo "Info: Copying mapcycle.txt file..."
-cp -f /src/config/$GAME/$CONFIG_DIR/mapcycle.txt $INSTANCE_DIR/mapcycle.txt
+cp -f /config/$GAME/$CONFIG_DIR/mapcycle.txt $INSTANCE_DIR/mapcycle.txt
 
 # Declare the config files to copy
 declare -A files=(
@@ -53,6 +63,6 @@ for key in "${!files[@]}"; do
     if [ ! -d "$INSTANCE_DIR$(dirname ${files[$key]})" ]; then
         echo "Warning: folder does not exist for $key file. Is plugin installed?"
     else
-        cp -f /src/config/$GAME/$CONFIG_DIR/$key $INSTANCE_DIR${files[$key]}
+        cp -f /config/$GAME/$CONFIG_DIR/$key $INSTANCE_DIR${files[$key]}
     fi
 done
