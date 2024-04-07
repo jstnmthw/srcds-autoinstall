@@ -1,6 +1,4 @@
 #!/bin/bash -e
-source s3-download.sh
-source .env
 
 # Game argument
 GAME="${1}"
@@ -30,14 +28,6 @@ if [ -f "$INSTANCE_DIR/mapcycle.txt" ]; then
     echo "Info: Backing up old mapcycle.txt file..."
     mv $INSTANCE_DIR/mapcycle.txt $INSTANCE_DIR/mapcycle.txt.bak
 fi
-
-# Check if CONFIG_SETUP is set to auto from .env file
-if [ "$CONFIG_SETUP" == "auto" ]; then
-    # Download the config files from S3
-    download_from_s3
-fi
-
-exit;
 
 # Copy the linuxgsm config file to the serverfiles directory
 echo "Info: Copying linuxgsm config file..."
