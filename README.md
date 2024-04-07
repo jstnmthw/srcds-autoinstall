@@ -43,11 +43,11 @@ Place your config files in the `config` directory (create it if one doesn't exit
 You can create multiple directories:
 
 ```bash
-- config/
-  - server1/
+- config
+  - server1
     - server.cfg
     - users.ini
-  - server2/
+  - server2
     - server.cfg
     - users.ini
 ```
