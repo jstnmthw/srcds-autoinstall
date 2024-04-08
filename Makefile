@@ -77,4 +77,4 @@ check-config:
 restart: stop start
 
 # Phony targets
-.PHONY: stop start restart install-metamod install-amxmodx install-foxbot install-all download
+.PHONY: stop start restart install-metamod install-amxmodx install-foxbot install-plugins install-all download
