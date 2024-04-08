@@ -9,22 +9,20 @@ GAME="${2}"
 # Config Name argument
 CONFIG_NAME="${3}"
 
+# Mod Type
+MOD_TYPE="${4}"
+
 # Instance folder
 INSTANCE_DIR="serverfiles/$GAME"
 
 # Server addons directory
-AMXMODX_DIR="$INSTANCE_DIR/addons/amxmodx"
-
-# Check if wget is installed
-if ! command -v wget &> /dev/null; then
-    echo "Error: wget is not installed. Please install wget and try again."
-    exit 1
-fi
+MOD_DIR="$INSTANCE_DIR/addons/$MOD_TYPE"
 
 # Move plugins to the serverfiles directory
-echo "Info: Moving plugins to $AMXMODX_DIR..."
-cp -r /plugins/${GAME}/* $AMXMODX_DIR/plugins
+echo "Info: Moving plugins to $MOD_DIR..."
+cp -r /plugins/${GAME}/${CONFIG_NAME}/. $MOD_DIR/plugins
 
 # Move configs to the serverfiles directory
-echo "Info: Moving plugins configs to $AMXMODX_DIR/configs..."
-cp /config/${GAME}/${CONFIG_NAME}/plugins.ini $AMXMODX_DIR/configs/plugins.ini
+# TODO: Other mods might not have the same structure or name
+echo "Info: Moving plugins configs to $MOD_DIR/configs..."
+cp /config/${GAME}/${CONFIG_NAME}/plugins.ini $MOD_DIR/configs/plugins.ini

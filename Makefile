@@ -37,8 +37,8 @@ install-foxbot: check-container
 	$(DOCKER_EXEC) "/scripts/install/foxbot.sh $(CONTAINER)"
 
 # Install AMX Mod X plugins
-install-plugins: check-container check-game check-config
-	$(DOCKER_EXEC) "/scripts/install/plugins.sh $(CONTAINER) $(GAME) $(CONFIG)"
+install-amx-plugins: check-container check-game check-config
+	$(DOCKER_EXEC) "/scripts/install/plugins.sh $(CONTAINER) $(GAME) $(CONFIG) amxmodx"
 
 # Set up the config
 setup: check-container check-game check-config download
