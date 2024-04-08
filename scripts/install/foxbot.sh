@@ -7,7 +7,7 @@ CONTAINER="/servers/${1}"
 FOXBOT_URL="https://github.com/APGRoboCop/foxbot/releases/download/v0.87-beta1/foxbot_087-b1.zip"
 
 # Build directory
-BUILD_DIR="/build"
+BUILD_DIR="build"
 
 # Instance folder
 INSTANCE_DIR="serverfiles/tfc"
@@ -33,7 +33,9 @@ echo "Info: Installing FoXBot for Team Fortress Classic..."
 
 # Check if the foxbot directory exists
 echo "Info: Recreating FoXBot build directory..."
-mkdir -p "$BUILD_DIR/foxbot"
+if [[ ! -d "$BUILD_DIR/foxbot" ]]; then
+    mkdir -p "$BUILD_DIR/foxbot"
+fi
 
 # Download the foxbot zip file and extract it
 echo "Info: Downloading FoXBot files..."

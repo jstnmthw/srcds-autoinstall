@@ -117,7 +117,7 @@ make install-metamod CONTAINER=tfc GAME=tfc CONFIG=classic
 make install-amxmod CONTAINER=tfc GAME=tfc CONFIG=classic
 
 # FoxBoT (TFC)
-make install-foxbot CONTAINER=tfc GAME=tfc CONFIG=classic
+make install-foxbot CONTAINER=tfc
 
 # Copy your configs
 make setup CONTAINER=tfc1 GAME=tfc CONFIG=classic
