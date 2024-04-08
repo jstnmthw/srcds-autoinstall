@@ -48,9 +48,16 @@ setup: check-container check-game check-config download
 download:
 	@./scripts/utils/s3-download.sh
 
-# Install all addons and config
-install-all: check-container check-game install-metamod install-amxmodx install-foxbot install-plugins setup-config
-	@echo "Info: All addons and configs have been installed successfully!"
+# Install
+install: check-container check-game check-config check-script
+	@./scripts/${SCRIPT} $(CONTAINER) $(GAME) $(CONFIG)
+
+# Check if the script is set
+check-script:
+	@if [ -z "$(SCRIPT)" ]; then \
+		echo "SCRIPT is not set. Save your launch script inside /scripts directory."; \
+		exit 1; \
+	fi
 
 # Check if the container is set
 check-container:
