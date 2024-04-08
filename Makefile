@@ -32,13 +32,13 @@ install-metamod: check-container check-game
 install-amxmodx: check-container check-game
 	$(DOCKER_EXEC) "/scripts/install/amxmodx.sh $(GAME)"
 
-# Install FoxBot (TFC Only)
-install-foxbot: check-container
-	$(DOCKER_EXEC) "/scripts/install/foxbot.sh $(CONTAINER)"
-
 # Install AMX Mod X plugins
 install-amx-plugins: check-container check-game check-config
 	$(DOCKER_EXEC) "/scripts/install/plugins.sh $(CONTAINER) $(GAME) $(CONFIG) amxmodx"
+
+# Install FoxBot (TFC Only)
+install-foxbot: check-container
+	$(DOCKER_EXEC) "/scripts/install/foxbot.sh $(CONTAINER)"
 
 # Set up the config
 setup: check-container check-game check-config download
