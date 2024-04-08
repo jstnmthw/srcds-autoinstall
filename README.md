@@ -55,7 +55,7 @@ You can create multiple directories:
 
 ### Automatic (S3)
 
-You can set `CONFIG_SETUP=s3` variable in your `.env` file to enable automatic download of your config files from an s3 bucket.
+You can set `CONFIG_SETUP=auto` variable in your `.env` file to enable automatic download of your config files from an s3 bucket.
 
 Supported files: `.zip`, or `.tar.gz`
 
