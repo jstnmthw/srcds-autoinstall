@@ -33,7 +33,7 @@ install-amxmodx: check-container check-game
 	$(DOCKER_EXEC) "/scripts/install/amxmodx.sh $(GAME)"
 
 # Install AMX Mod X plugins
-install-amx-plugins: check-container check-game check-config
+install-amxmodx-plugins: check-container check-game check-config
 	$(DOCKER_EXEC) "/scripts/install/plugins.sh $(CONTAINER) $(GAME) $(CONFIG) amxmodx"
 
 # Install FoxBot (TFC Only)
