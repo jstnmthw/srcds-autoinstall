@@ -23,7 +23,7 @@ make download
 sleep 10
 make install-amxmodx-plugins CONTAINER=$CONTAINER GAME=$GAME CONFIG=$CONFIG_NAME
 sleep 10
-make setup CONTAINER=$CONTAINER GAME=$GAME CONFIG=classic
+make setup CONTAINER=$CONTAINER GAME=$GAME CONFIG=$CONFIG_NAME
 sleep 5
 make restart
 
