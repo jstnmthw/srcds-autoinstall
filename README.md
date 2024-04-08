@@ -1,8 +1,6 @@
 # SRCDS - Autoinstall
 
-If you like to host your own half life dedicated servers on linux, this
-software can automatically deploy multiple servers each with their own config and plugins.
-LinuxGSM is the underlying server management software, this just set's everything up. Perfect for using in conjunction with AWS's Spot Instances.
+If you like to host your own half life dedicated servers on linux, this software can automatically deploy multiple servers each with their own config and plugins using [Docker](https://www.docker.com/get-started/) with [LinuxGSM docker](https://github.com/GameServerManagers/docker-linuxgsm) images. LinuxGSM is the underlying server management software, this just set's everything up with shell scripts. Perfect for using in conjunction with AWS's Spot Instances.
 
 ## Index
 - [Prerequisites](#prerequisites)
