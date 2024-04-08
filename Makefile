@@ -41,8 +41,8 @@ install-plugins: check-container check-game check-config
 	$(DOCKER_EXEC) "/scripts/install/plugins.sh $(CONTAINER) $(GAME) $(CONFIG)"
 
 # Set up the config
-setup: check-container
-	$(DOCKER_EXEC) "/scripts/setup.sh $(GAME) $(CONFIG) $(MOTD)"
+setup: check-container check-game check-config download
+	$(DOCKER_EXEC) "/scripts/setup.sh $(GAME) $(CONFIG)"
 
 # Download the server files
 download:
