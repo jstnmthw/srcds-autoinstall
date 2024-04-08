@@ -26,5 +26,5 @@ sleep 10
 make setup CONTAINER=$CONTAINER GAME=$GAME CONFIG=$CONFIG_NAME
 sleep 5
 make restart
-
+ 
 echo "Info: Setting up $GAME inside $CONTAINER... Done!"
