@@ -97,6 +97,14 @@ tfc:
   ...
 ```
 
+### Installing your first server
+
+Each server should have their own `server-example.sh` script (minus the example).
+
+```
+make install CONTAINER=tfc1 GAME=tfc CONFIG=classic SCRIPT=server-example.sh
+```
+
 ## Commands
 
 Utilize the Makefile included to install configs and plugins. 
