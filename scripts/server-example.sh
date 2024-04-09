@@ -11,6 +11,8 @@ CONFIG_NAME=$3
 
 echo "Info: Setting up $GAME inside $CONTAINER..."
 
+sleep 10
+make download
 docker-compose up -d
 sleep 30
 make install-metamod CONTAINER=$CONTAINER GAME=$GAME
@@ -18,8 +20,6 @@ sleep 10
 make install-amxmodx CONTAINER=$CONTAINER GAME=$GAME
 sleep 10
 make install-foxbot CONTAINER=$CONTAINER GAME=$GAME
-sleep 10
-make download
 sleep 10
 make install-amxmodx-plugins CONTAINER=$CONTAINER GAME=$GAME CONFIG=$CONFIG_NAME
 sleep 10
