@@ -11,8 +11,8 @@ CONFIG_NAME=$3
 
 echo "Info: Setting up $GAME inside $CONTAINER..."
 
-sleep 10
 make download
+sleep 10
 docker-compose up -d
 sleep 30
 make install-metamod CONTAINER=$CONTAINER GAME=$GAME
