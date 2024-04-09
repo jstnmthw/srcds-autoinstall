@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   tfc1:
     image: gameservermanagers/gameserver:tfc
