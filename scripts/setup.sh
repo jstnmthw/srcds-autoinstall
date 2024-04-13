@@ -29,6 +29,12 @@ if [ -f "$INSTANCE_DIR/mapcycle.txt" ]; then
     mv $INSTANCE_DIR/mapcycle.txt $INSTANCE_DIR/mapcycle.txt.bak
 fi
 
+# Use mapcycle for amx_mapmenu
+if [ -f "$INSTANCE_DIR/addons/amxmodx/configs/maps.ini" ]; then
+    echo "Info: Disabling amxmodx maps.ini..."
+    mv $INSTANCE_DIR/addons/amxmodx/configs/maps.ini $INSTANCE_DIR/addons/amxmodx/configs/maps.ini.bak
+fi
+
 # Copy the linuxgsm config file to the serverfiles directory
 echo "Info: Copying linuxgsm config file..."
 cp -f /config/$GAME/$CONFIG_DIR/lgsm.cfg /data/config-lgsm/${GAME}server/${GAME}server.cfg
