@@ -48,6 +48,10 @@ install-foxbot: check-container
 setup: check-container check-game check-config download
 	$(DOCKER_EXEC) "/scripts/setup.sh $(GAME) $(CONFIG)"
 
+# Pack up custom configs
+pack: 
+	@tar -zvcf config.tar.gz config/ plugins/ docker-compose.yml
+
 # Download the server files
 download:
 	@./scripts/utils/s3-download.sh
