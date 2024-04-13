@@ -8,7 +8,7 @@ DOCKER_COMPOSE_FILE := docker-compose.yml
 DOCKER_EXEC = @docker-compose -f $(DOCKER_COMPOSE_FILE) exec -u linuxgsm -it $(CONTAINER) /bin/bash -c
 
 # Default target to run when running `make` without arguments
-all: restart
+default: restart
 
 # Stop the containers
 stop:
@@ -30,7 +30,11 @@ install-metamod: check-container check-game
 
 # Install AMX Mod X
 install-amxmodx: check-container check-game
-	$(DOCKER_EXEC) "/scripts/install/amxmodx.sh $(GAME)"
+	$(DOCKER_EXEC) "/scripts/install/amxmodx/base.sh $(GAME)"
+
+# Install AMX Mod X - TFC Addon
+install-amxmodx-tfc: check-container check-game
+	$(DOCKER_EXEC) "/scripts/install/amxmodx/tfc.sh $(GAME)"
 
 # Install AMX Mod X plugins
 install-amxmodx-plugins: check-container check-game check-config
@@ -84,4 +88,4 @@ check-config:
 restart: stop start
 
 # Phony targets
-.PHONY: stop start restart install-metamod install-amxmodx install-foxbot install-plugins install-all download
+.PHONY: stop start restart install-metamod install-amxmodx install-amxmodx-tfc install-foxbot install-plugins install-all download
