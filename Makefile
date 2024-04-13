@@ -56,6 +56,10 @@ pack:
 download:
 	@./scripts/utils/s3-download.sh
 
+# Upload the server files
+upload:
+	@./scripts/utils/s3-upload.sh
+
 # Install
 install: check-container check-game check-config check-script
 	@./scripts/${SCRIPT} $(CONTAINER) $(GAME) $(CONFIG)
