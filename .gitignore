@@ -3,3 +3,4 @@ servers
 build
 config
 plugins
+config.tar.gz
