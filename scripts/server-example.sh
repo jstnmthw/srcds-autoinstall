@@ -7,7 +7,7 @@ CONTAINER=$1
 GAME=$2
 
 # Config Name argument
-CONFIG_NAME=$3
+CONFIG=$3
 
 echo "Info: Setting up $GAME inside $CONTAINER..."
 
@@ -21,9 +21,9 @@ make install-amxmodx CONTAINER=$CONTAINER GAME=$GAME
 sleep 10
 make install-foxbot CONTAINER=$CONTAINER GAME=$GAME
 sleep 10
-make install-amxmodx-plugins CONTAINER=$CONTAINER GAME=$GAME CONFIG=$CONFIG_NAME
+make install-amxmodx-plugins CONTAINER=$CONTAINER GAME=$GAME CONFIG=$CONFIG
 sleep 10
-make setup CONTAINER=$CONTAINER GAME=$GAME CONFIG=$CONFIG_NAME
+make setup CONTAINER=$CONTAINER GAME=$GAME CONFIG=$CONFIG
 sleep 5
 make restart
  
