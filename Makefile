@@ -2,7 +2,7 @@
 SHELL := /bin/bash -e
 
 # Define the docker-compose file
-DOCKER_COMPOSE_FILE := docker-compose.yml
+DOCKER_COMPOSE_FILE := $(COMPOSE)
 
 # Define the container name
 DOCKER_EXEC = @docker-compose -f $(DOCKER_COMPOSE_FILE) exec -u linuxgsm -it $(CONTAINER) /bin/bash -c
@@ -32,8 +32,8 @@ copy-config: check-script check-container
 	$(DOCKER_EXEC) "/scripts/$(SCRIPT)/config.sh"
 
 # Install
-install: check-container check-script check-game check-config
-	$(DOCKER_EXEC) "/scripts/$(SCRIPT)/install.sh"
+install: check-script
+	"./scripts/$(SCRIPT)/install.sh"
 
 # Pack up custom configs
 pack:

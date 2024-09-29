@@ -6,6 +6,7 @@ services:
     networks:
       - cs2_network
     volumes:
+      - ./.data/cs2:/data
       - ./scripts:/scripts
       - ./config:/config
       - ./plugins:/plugins
