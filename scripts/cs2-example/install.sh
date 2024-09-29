@@ -36,7 +36,6 @@ while true; do
 done
 
 # Install configuration files and restart the container
-# make copy-config CONTAINER=$CONTAINER SCRIPT=$SCRIPT COMPOSE=$COMPOSE
 docker exec -u linuxgsm $CONTAINER /scripts/cs2-example/config.sh
 echo "Info: Restarting server..."
 docker-compose -f $COMPOSE restart $CONTAINER

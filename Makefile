@@ -23,14 +23,6 @@ start:
 # Restarting the containers
 restart: stop start
 
-# Bash into the container
-bash: check-container
-	@docker-compose -f $(DOCKER_COMPOSE_FILE) exec -it $(CONTAINER) /bin/bash
-
-# Copy config
-copy-config: check-script check-container
-	$(DOCKER_EXEC) "/scripts/$(SCRIPT)/config.sh"
-
 # Install
 install: check-script
 	"./scripts/$(SCRIPT)/install.sh"
@@ -38,7 +30,7 @@ install: check-script
 # Check if the script is set
 check-script:
 	@if [ -z "$(SCRIPT)" ]; then \
-		echo "SCRIPT is not set. Save your launch script inside /scripts directory."; \
+		echo "SCRIPT is not set."; \
 		exit 1; \
 	fi
 
@@ -50,4 +42,4 @@ check-container:
 	fi
 
 # Phony targets
-.PHONY: stop start restart bash copy-config install check-script check-container
+.PHONY: stop start restart install check-script check-container
