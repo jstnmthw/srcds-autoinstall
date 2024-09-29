@@ -5,17 +5,38 @@ SCRIPT=cs2-example
 CONTAINER=cs2
 COMPOSE=docker-compose-cs2.yml
 
+# Set the game server
 echo "Info: Setting up cs2-example..."
 cd ./
-docker-compose -f $COMPOSE up -d
+
+# Check if the container is running and start it
+if [ "$(docker inspect -f "{{.State.Running}}" $CONTAINER)" == "false" ]; then
+    echo "Info: Starting $CONTAINER..."
+    docker start $CONTAINER
+else
+    echo "Info: $CONTAINER is already running."
+fi
 
 # Check and wait for the container to start
 while [ "$(docker inspect -f "{{.State.Health.Status}}" $CONTAINER)" != "healthy" ]; do
-    echo "Info: Waiting for $CONTAINER to start..."
+    echo "Info: Waiting for $CONTAINER to start up..."
     sleep 10
 done
 
-make copy-config CONTAINER=$CONTAINER SCRIPT=$SCRIPT COMPOSE=$COMPOSE
-make restart
- 
-echo "Info: Setting up $SCRIPT inside $CONTAINER... Done!"
+# Check and wait for LinuxGSM to finish downloading and installing the game
+while true; do
+    OUTPUT=$(docker exec -u linuxgsm $CONTAINER ./cs2server details)
+    if echo "$OUTPUT" | grep -q "STARTED"; then
+        echo "Info: Game server is running."
+        break
+    else
+        echo "Info: Waiting for game server to be ready..."
+        sleep 30
+    fi
+done
+
+# Install configuration files and restart the container
+# make copy-config CONTAINER=$CONTAINER SCRIPT=$SCRIPT COMPOSE=$COMPOSE
+docker exec -u linuxgsm $CONTAINER /scripts/cs2-example/config.sh
+echo "Info: Restarting server..."
+docker-compose -f $COMPOSE restart $CONTAINER

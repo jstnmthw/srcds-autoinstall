@@ -35,18 +35,6 @@ copy-config: check-script check-container
 install: check-script
 	"./scripts/$(SCRIPT)/install.sh"
 
-# Pack up custom configs
-pack:
-	@tar -zvcf config.tar.gz config/ plugins/ docker-compose.yml
-
-# Download the server files
-download:
-	@./scripts/utils/s3-download.sh
-
-# Upload the server files
-upload:
-	@./scripts/utils/s3-upload.sh
-
 # Check if the script is set
 check-script:
 	@if [ -z "$(SCRIPT)" ]; then \
@@ -61,19 +49,5 @@ check-container:
 		exit 1; \
 	fi
 
-# Check if the game is set
-check-game:
-	@if [ -z "$(GAME)" ]; then \
-		echo "GAME is not set"; \
-		exit 1; \
-	fi
-
-# Check if the config is set
-check-config:
-	@if [ -z "$(CONFIG)" ]; then \
-		echo "CONFIG is not set"; \
-		exit 1; \
-	fi
-
 # Phony targets
-.PHONY: stop start restart bash copy-config pack download upload check-script check-container check-game check-config
+.PHONY: stop start restart bash copy-config install check-script check-container

@@ -4,7 +4,7 @@
 CONFIG_DIR="cs2"
 
 # Instance folder
-INSTANCE_DIR="/app/serverfiles/game/csgo"
+INSTANCE_DIR="/data/serverfiles/game/csgo"
 LINUXGSM_CFG="/data/config-lgsm/cs2server"
 
 # Files to process with their target paths

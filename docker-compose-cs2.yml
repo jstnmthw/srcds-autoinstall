@@ -6,7 +6,7 @@ services:
     networks:
       - cs2_network
     volumes:
-      - ./.data/cs2:/data
+      - cs2_data:/data
       - ./scripts:/scripts
       - ./config:/config
       - ./plugins:/plugins
@@ -19,3 +19,7 @@ services:
 networks:
   cs2_network:
     driver: bridge
+
+volumes:
+  cs2_data:
+    driver: local
