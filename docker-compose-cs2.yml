@@ -1,0 +1,20 @@
+services:
+  cs2:
+    image: gameservermanagers/gameserver:cs2
+    container_name: cs2
+    restart: unless-stopped
+    networks:
+      - cs2_network
+    volumes:
+      - ./scripts:/scripts
+      - ./config:/config
+      - ./plugins:/plugins
+    ports:
+      - "27015:27015/tcp"
+      - "27015:27015/udp"
+      - "27020:27020/udp"
+      - "27005:27005/udp"
+
+networks:
+  cs2_network:
+    driver: bridge
