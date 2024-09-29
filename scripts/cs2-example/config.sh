@@ -11,6 +11,7 @@ LINUXGSM_CFG="/data/config-lgsm/cs2server"
 FILES=(
     "linuxgsm.cfg:$LINUXGSM_CFG/cs2server.cfg"
     "cs2server.cfg:$INSTANCE_DIR/cfg/cs2server.cfg"
+    "gamemode_casual_server.cfg:$INSTANCE_DIR/cfg/gamemode_casual_server.cfg"
     "mapcycle.txt:$INSTANCE_DIR/mapcycle.txt"
 )
 
