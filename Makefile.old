@@ -20,23 +20,40 @@ start:
 	@echo "Starting the containers..."
 	@docker-compose -f $(DOCKER_COMPOSE_FILE) up -d
 
-# Restarting the containers
-restart: stop start
-
 # Bash into the container
 bash: check-container
 	@docker-compose -f $(DOCKER_COMPOSE_FILE) exec -it $(CONTAINER) /bin/bash
 
 # Copy config
-copy-config: check-script check-container
-	$(DOCKER_EXEC) "/scripts/$(SCRIPT)/config.sh"
+copy-config: check-game check-container
+	$(DOCKER_EXEC) "/scripts/$(GAME)/config.sh"
 
-# Install
-install: check-container check-script check-game check-config
-	$(DOCKER_EXEC) "/scripts/$(SCRIPT)/install.sh"
+# Install metamod
+install-metamod: check-container check-game
+	$(DOCKER_EXEC) "/scripts/install/metamod.sh $(GAME)"
+
+# Install AMX Mod X
+install-amxmodx: check-container check-game
+	$(DOCKER_EXEC) "/scripts/install/amxmodx/base.sh $(GAME)"
+
+# Install AMX Mod X - TFC Addon
+install-amxmodx-tfc: check-container check-game
+	$(DOCKER_EXEC) "/scripts/install/amxmodx/tfc.sh $(GAME)"
+
+# Install AMX Mod X plugins
+install-amxmodx-plugins: check-container check-game check-config
+	$(DOCKER_EXEC) "/scripts/install/plugins.sh $(CONTAINER) $(GAME) $(CONFIG) amxmodx"
+
+# Install FoxBot (TFC Only)
+install-foxbot: check-container
+	$(DOCKER_EXEC) "/scripts/install/foxbot.sh $(CONTAINER)"
+
+# Set up the config
+setup: check-container check-game check-config download
+	$(DOCKER_EXEC) "/scripts/setup.sh $(GAME) $(CONFIG)"
 
 # Pack up custom configs
-pack:
+pack: 
 	@tar -zvcf config.tar.gz config/ plugins/ docker-compose.yml
 
 # Download the server files
@@ -46,6 +63,10 @@ download:
 # Upload the server files
 upload:
 	@./scripts/utils/s3-upload.sh
+
+# Install
+install: check-container check-game check-config check-script
+	@./scripts/${SCRIPT} $(CONTAINER) $(GAME) $(CONFIG)
 
 # Check if the script is set
 check-script:
@@ -75,5 +96,8 @@ check-config:
 		exit 1; \
 	fi
 
+# Restarting the containers
+restart: stop start
+
 # Phony targets
-.PHONY: stop start restart bash copy-config pack download upload check-script check-container check-game check-config
+.PHONY: stop start restart install-metamod install-amxmodx install-amxmodx-tfc install-foxbot install-plugins install-all download

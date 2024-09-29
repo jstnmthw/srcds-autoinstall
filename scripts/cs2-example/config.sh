@@ -1,11 +1,7 @@
 #!/bin/bash -e
 
 # Config Name argument
-CONFIG_DIR="${1}"
-if [ -z "$CONFIG_DIR" ]; then
-    echo "Error: Config directory argument not passed!"
-    exit 1
-fi
+CONFIG_DIR="cs2"
 
 # Instance folder
 INSTANCE_DIR="/app/serverfiles/game/csgo"
