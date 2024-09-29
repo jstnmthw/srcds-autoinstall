@@ -1,12 +1,16 @@
 #!/bin/bash
+ANYBASE_LIB_URL=https://github.com/NickFox007/AnyBaseLibCS2/releases/download/0.9.1/AnyBaseLib.zip
+PLAYER_SETTINGS_URL=https://github.com/NickFox007/PlayerSettingsCS2/releases/download/0.7/PlayerSettings.zip
+MENU_MANAGER_URL=https://github.com/NickFox007/MenuManagerCS2/releases/download/0.9/MenuManager.zip
+SIMPLE_ADMIN_URL=https://github.com/daffyyyy/CS2-SimpleAdmin/releases/download/build-250/CS2-SimpleAdmin-250.zip
 
 # Load environment variables from .env file 
-if [ -f .env ]; then
-  source .env
-else
-  echo "Error: .env file not found. Please create a .env file with your settings."
-  exit 1
-fi
+# if [ -f .env ]; then
+#   source .env
+# else
+#   echo "Error: .env file not found. Please create a .env file with your settings."
+#   exit 1
+# fi
 
 # Check if required environment variables are set
 if [ -z "$ANYBASE_LIB_URL" ] || [ -z "$PLAYER_SETTINGS_URL" ] || [ -z "$MENU_MANAGER_URL" ] || [ -z "$SIMPLE_ADMIN_URL" ]; then
@@ -31,7 +35,7 @@ echo "Download complete."
 
 # Step 1.2: Unarchive the AnyBase file
 echo "Extracting AnyBase..."
-unzip -q AnyBase.zip -d "$SERVER_DIR"
+unzip -qo AnyBase.zip -d "$SERVER_DIR"
 
 if [ $? -ne 0 ]; then
   echo "Error: Failed to extract AnyBase."
@@ -56,7 +60,7 @@ echo "Download complete."
 
 # Step 2.2: Unarchive the PlayerSettings file
 echo "Extracting PlayerSettings..."
-unzip -q PlayerSettings.zip -d "$SERVER_DIR"
+unzip -qo PlayerSettings.zip -d "$SERVER_DIR"
 
 if [ $? -ne 0 ]; then
   echo "Error: Failed to extract PlayerSettings."
@@ -81,7 +85,7 @@ echo "Download complete."
 
 # Step 3.2: Unarchive the MenuManager file
 echo "Extracting MenuManager..."
-unzip -q MenuManager.zip -d "$SERVER_DIR"
+unzip -qo MenuManager.zip -d "$SERVER_DIR"
 
 if [ $? -ne 0 ]; then
   echo "Error: Failed to extract MenuManager."
@@ -106,7 +110,7 @@ echo "Download complete."
 
 # Step 4.2: Unarchive the SimpleAdmin file
 echo "Extracting SimpleAdmin..."
-unzip -q SimpleAdmin.zip -d "$SERVER_DIR/addons"
+unzip -qo SimpleAdmin.zip -d "$SERVER_DIR/addons"
 
 if [ $? -ne 0 ]; then
   echo "Error: Failed to extract SimpleAdmin."

@@ -1,12 +1,14 @@
 #!/bin/bash
 
+METAMOD_URL=https://mms.alliedmods.net/mmsdrop/2.0/mmsource-2.0.0-git1313-linux.tar.gz
+
 # Load environment variables from .env file 
-if [ -f .env ]; then
-  source .env
-else
-  echo "Error: .env file not found. Please create a .env file with your settings."
-  exit 1
-fi
+# if [ -f .env ]; then
+#   source .env
+# else
+#   echo "Error: .env file not found. Please create a .env file with your settings."
+#   exit 1
+# fi
 
 # Check if the METAMOD_URL environment variable is set
 if [ -z "$METAMOD_URL" ]; then
