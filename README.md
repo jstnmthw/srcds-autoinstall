@@ -53,18 +53,11 @@ You can create multiple directories:
 
 ### Automatic (S3)
 
-You can set `CONFIG_SETUP=auto` variable in your `.env` file to enable automatic download of your config files from an s3 bucket.
-
 Supported files: `.zip`, or `.tar.gz`
 
 In order to download from S3 you must set the appropriate AWS Cli credentials in your `.env` as well.
 
 **Note**: This script will run on the host machine. Which means AWS Cli must be installed.
-
-```bash
-# Manual or Auto
-CONFIG_SETUP=auto
-```
 
 The directory structure of the file should mirror our root directory:
 ```bash
