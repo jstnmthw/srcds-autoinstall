@@ -17,7 +17,7 @@ services:
       - "27005:27005/udp"
   mysql:
     image: mysql:latest
-    container_name: cs2_mysql
+    container_name: mysql
     restart: unless-stopped
     networks:
       - cs2_network
@@ -28,6 +28,8 @@ services:
       MYSQL_PASSWORD: "password"
     volumes:
       - mysql_db:/var/lib/mysql
+    ports:
+      - "3306:3306"
 
 networks:
   cs2_network:
