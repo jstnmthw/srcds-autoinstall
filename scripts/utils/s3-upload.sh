@@ -38,24 +38,17 @@ aws configure set default.region $AWS_REGION
 
 if [[ -d $BACKUP_PATH ]] && [[ -n $BACKUP_PATH ]]; then
     # Create a tarball of the backup directory
-    tar -czf ${S3_FILE} $BACKUP_PATH
+    tar -czf /tmp/${S3_FILE} $BACKUP_PATH
 
     # Use AWS CLI command to upload the file to S3
-    if ! aws s3 cp ${S3_FILE} s3://${S3_BUCKET}/${S3_FILE_PATH}/${S3_FILE}; then
+    if ! aws s3 cp /tmp/${S3_FILE} s3://${S3_BUCKET}/${S3_FILE_PATH}/${S3_FILE}; then
         echo "Error: Failed to upload file to S3. Please check your S3 bucket and file path."
         exit 1
     else
+        rm -rf /tmp/${S3_FILE}
         echo "File uploaded successfully."
     fi
 else
     echo "Error: Backup path is not set or does not exist. Please check your .env file."
     exit 1
 fi
-
-# Use AWS CLI command to download the file from S3
-# if ! aws s3 cp ${S3_FILE} s3://${S3_BUCKET}/${S3_FILE_PATH}/${S3_FILE}; then
-#     echo "Error: Failed to download file from S3. Please check your S3 bucket and file path."
-#     exit 1
-# fi
-
-# echo "File uploaded successfully."
