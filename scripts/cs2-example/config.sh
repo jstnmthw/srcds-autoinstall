@@ -14,6 +14,8 @@ FILES=(
     "gamemode_casual_server.cfg:$INSTANCE_DIR/cfg/gamemode_casual_server.cfg"
     "mapcycle.txt:$INSTANCE_DIR/mapcycle.txt"
     "CS2-SimpleAdmin.json:$INSTANCE_DIR/addons/counterstrikesharp/configs/plugins/CS2-SimpleAdmin/CS2-SimpleAdmin.json"
+    "admins.json:$INSTANCE_DIR/addons/counterstrikesharp/configs/admins.json"
+    "admin_groups.json:$INSTANCE_DIR/addons/counterstrikesharp/configs/admin_groups.json"
 )
 
 for FILE_PAIR in "${FILES[@]}"; do
