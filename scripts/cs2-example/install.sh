@@ -36,11 +36,11 @@ while true; do
 done
 
 # Install configuration files and restart the container
-docker exec -u linuxgsm $CONTAINER /scripts/cs2-example/metamod_update.sh
-docker exec -u linuxgsm $CONTAINER /scripts/cs2-example/metamod_write.sh
-docker exec -u linuxgsm $CONTAINER /scripts/cs2-example/simple-admin.sh
-docker exec -u linuxgsm $CONTAINER /scripts/utils/s3-download.sh
-docker exec -u linuxgsm $CONTAINER /scripts/cs2-example/config.sh
+docker exec -u linuxgsm $CONTAINER ./scripts/cs2-example/metamod_update.sh
+docker exec -u linuxgsm $CONTAINER ./scripts/cs2-example/metamod_write.sh
+docker exec -u linuxgsm $CONTAINER ./scripts/cs2-example/simple-admin.sh
+docker exec -u linuxgsm $CONTAINER ./scripts/utils/s3-download.sh
+docker exec -u linuxgsm $CONTAINER ./scripts/cs2-example/config.sh
 
 echo "Info: Restarting server..."
 docker-compose -f $COMPOSE restart $CONTAINER
