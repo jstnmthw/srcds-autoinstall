@@ -10,9 +10,13 @@ echo "Info: Setting up cs2-example..."
 cd ./
 
 # Check if the container is running and start it
-if [ "$(docker inspect -f "{{.State.Running}}" $CONTAINER)" == "false" ]; then
+container_status=$(docker inspect -f "{{.State.Running}}" $CONTAINER 2>&1)
+
+if [[ $container_status == *"No such object"* ]]; then
+    echo "Error: No such container: $CONTAINER"
+elif [[ $container_status == "false" ]]; then
     echo "Info: Starting $CONTAINER..."
-    docker start $CONTAINER
+    docker-compose -f $COMPOSE up -d $CONTAINER
 else
     echo "Info: $CONTAINER is already running."
 fi
