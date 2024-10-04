@@ -11,9 +11,9 @@ cd ./
 
 # Check if the container running
 if ! docker ps -a --format '{{.Names}}' | grep -Eq "^${CONTAINER}\$"; then
-    echo "Info: Container: $CONTAINER not running."
-    echo "Info: Creating $CONTAINER..."
-    docker-compose -f $COMPOSE up -d $CONTAINER
+    echo "Info: $CONTAINER container not running."
+    echo "Info: Bringing up $CONTAINER..."
+    docker-compose -f $COMPOSE up -f ./docker-compose.yml -d $CONTAINER
 else
     echo "Info: $CONTAINER already exists."
 fi
