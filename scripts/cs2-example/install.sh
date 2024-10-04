@@ -3,7 +3,7 @@
 # Set the game and container
 SCRIPT=cs2-example
 CONTAINER=cs2
-COMPOSE=docker-compose-cs2.yml
+COMPOSE=./docker-compose-cs2.yml
 
 # Set the game server
 echo "Info: Setting up cs2-example..."
@@ -13,7 +13,7 @@ cd ./
 if ! docker ps -a --format '{{.Names}}' | grep -Eq "^${CONTAINER}\$"; then
     echo "Info: $CONTAINER container not running."
     echo "Info: Bringing up $CONTAINER..."
-    docker-compose -f $COMPOSE up -f ./docker-compose.yml -d $CONTAINER
+    docker-compose -f $COMPOSE up -d $CONTAINER
 else
     echo "Info: $CONTAINER already exists."
 fi
