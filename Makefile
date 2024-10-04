@@ -25,7 +25,7 @@ restart: stop start
 
 # Install
 install: check-script
-	"./scripts/$(SCRIPT)/install.sh"
+	"scripts/$(SCRIPT)/install.sh"
 
 # Check if the script is set
 check-script:
