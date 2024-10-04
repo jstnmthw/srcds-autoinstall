@@ -9,19 +9,13 @@ COMPOSE=docker-compose-cs2.yml
 echo "Info: Setting up cs2-example..."
 cd ./
 
-# Check if the container exists
+# Check if the container running
 if ! docker ps -a --format '{{.Names}}' | grep -Eq "^${CONTAINER}\$"; then
-    echo "Error: No such container: $CONTAINER"
-    exit 1
-fi
-
-# Check if the container is running
-container_status=$(docker inspect -f "{{.State.Running}}" $CONTAINER)
-if [[ $container_status == "false" ]]; then
-    echo "Info: Starting $CONTAINER..."
+    echo "Info: Container: $CONTAINER not running."
+    echo "Info: Creating $CONTAINER..."
     docker-compose -f $COMPOSE up -d $CONTAINER
 else
-    echo "Info: $CONTAINER is already running."
+    echo "Info: $CONTAINER already exists."
 fi
 
 # Check and wait for the container to start
