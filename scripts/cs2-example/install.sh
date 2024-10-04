@@ -3,7 +3,7 @@
 # Set the game and container
 SCRIPT=cs2-example
 CONTAINER=cs2
-COMPOSE=./docker-compose-cs2.yml
+COMPOSE=../../docker-compose-cs2.yml
 
 # Set the game server
 echo "Info: Setting up cs2-example..."
