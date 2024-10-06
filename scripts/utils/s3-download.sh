@@ -21,9 +21,9 @@ done
 echo "Downloading config files from S3..."
 
 # Set AWS credentials
-aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-aws configure set default.region $AWS_REGION
+# aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+# aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+# aws configure set default.region $AWS_REGION
 
 # Use AWS CLI command to download the file from S3
 if ! aws s3 cp s3://${S3_BUCKET}/${S3_FILE_PATH}/${S3_FILE} /tmp; then
