@@ -2,7 +2,7 @@
 ANYBASE_LIB_URL=https://github.com/NickFox007/AnyBaseLibCS2/releases/download/0.9.1/AnyBaseLib.zip
 PLAYER_SETTINGS_URL=https://github.com/NickFox007/PlayerSettingsCS2/releases/download/0.7/PlayerSettings.zip
 MENU_MANAGER_URL=https://github.com/NickFox007/MenuManagerCS2/releases/download/0.9/MenuManager.zip
-SIMPLE_ADMIN_URL=https://github.com/daffyyyy/CS2-SimpleAdmin/archive/refs/tags/build-256.zip
+SIMPLE_ADMIN_URL=https://github.com/daffyyyy/CS2-SimpleAdmin/releases/download/build-256/CS2-SimpleAdmin-256.zip
 
 # Load environment variables from .env file 
 # if [ -f .env ]; then
