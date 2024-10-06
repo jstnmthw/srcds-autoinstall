@@ -24,7 +24,7 @@ SERVER_DIR="/data/serverfiles/game/csgo"
 
 # Step 1.1: Download AnyBase Lib
 echo "Downloading AnyBase Lib from $ANYBASE_LIB_URL..."
-wget -q -O AnyBase.zip "$ANYBASE_LIB_URL"
+wget -q -O /tmp/AnyBase.zip "$ANYBASE_LIB_URL"
 
 if [ $? -ne 0 ]; then
   echo "Error: Failed to download AnyBase. Please check the ANYBASE_LIB_URL."
@@ -35,7 +35,7 @@ echo "Download complete."
 
 # Step 1.2: Unarchive the AnyBase file
 echo "Extracting AnyBase..."
-unzip -qo AnyBase.zip -d "$SERVER_DIR"
+unzip -qo /tmp/AnyBase.zip -d "$SERVER_DIR"
 
 if [ $? -ne 0 ]; then
   echo "Error: Failed to extract AnyBase."
@@ -43,13 +43,13 @@ if [ $? -ne 0 ]; then
 fi
 
 # Step 1.3 Clean up the downloaded archive
-rm -f AnyBase.zip
+rm -f /tmp/AnyBase.zip
 echo "Cleaning up..."
 echo "Extraction complete."
 
 # Step 2.1: Download Player Settings
 echo "Downloading Player Settings from $PLAYER_SETTINGS_URL..."
-wget -q -O PlayerSettings.zip "$PLAYER_SETTINGS_URL"
+wget -q -O /tmp/PlayerSettings.zip "$PLAYER_SETTINGS_URL"
 
 if [ $? -ne 0 ]; then
   echo "Error: Failed to download PlayerSettings. Please check the PLAYER_SETTINGS_URL."
@@ -60,7 +60,7 @@ echo "Download complete."
 
 # Step 2.2: Unarchive the PlayerSettings file
 echo "Extracting PlayerSettings..."
-unzip -qo PlayerSettings.zip -d "$SERVER_DIR"
+unzip -qo /tmp/PlayerSettings.zip -d "$SERVER_DIR"
 
 if [ $? -ne 0 ]; then
   echo "Error: Failed to extract PlayerSettings."
@@ -68,13 +68,13 @@ if [ $? -ne 0 ]; then
 fi
 
 # Step 2.3: Clean up the downloaded archive
-rm -f PlayerSettings.zip
+rm -f /tmp/PlayerSettings.zip
 echo "Cleaning up..."
 echo "Extraction complete."
 
 # Step 3.1: Download Menu Manager
 echo "Downloading Menu Manager from $MENU_MANAGER_URL..."
-wget -q -O MenuManager.zip "$MENU_MANAGER_URL"
+wget -q -O /tmp/MenuManager.zip "$MENU_MANAGER_URL"
 
 if [ $? -ne 0 ]; then
   echo "Error: Failed to download MenuManager. Please check the MENU_MANAGER_URL."
@@ -85,7 +85,7 @@ echo "Download complete."
 
 # Step 3.2: Unarchive the MenuManager file
 echo "Extracting MenuManager..."
-unzip -qo MenuManager.zip -d "$SERVER_DIR"
+unzip -qo /tmp/MenuManager.zip -d "$SERVER_DIR"
 
 if [ $? -ne 0 ]; then
   echo "Error: Failed to extract MenuManager."
@@ -93,13 +93,13 @@ if [ $? -ne 0 ]; then
 fi
 
 # Step 3.3: Clean up the downloaded archive
-rm -f MenuManager.zip
+rm -f /tmp/MenuManager.zip
 echo "Cleaning up..."
 echo "Extraction complete."
 
 # Step 4.1: Download Simple Admin
 echo "Downloading Simple Admin from $SIMPLE_ADMIN_URL..."
-wget -q -O SimpleAdmin.zip "$SIMPLE_ADMIN_URL"
+wget -q -O /tmp/SimpleAdmin.zip "$SIMPLE_ADMIN_URL"
 
 if [ $? -ne 0 ]; then
   echo "Error: Failed to download SimpleAdmin. Please check the SIMPLE_ADMIN_URL."
@@ -110,7 +110,7 @@ echo "Download complete."
 
 # Step 4.2: Unarchive the SimpleAdmin file
 echo "Extracting SimpleAdmin..."
-unzip -qo SimpleAdmin.zip -d "$SERVER_DIR/addons"
+unzip -qo /tmp/SimpleAdmin.zip -d "$SERVER_DIR/addons"
 
 if [ $? -ne 0 ]; then
   echo "Error: Failed to extract SimpleAdmin."
@@ -118,6 +118,6 @@ if [ $? -ne 0 ]; then
 fi
 
 # Step 4.3: Clean up the downloaded archive
-rm -f SimpleAdmin.zip
+rm -f /tmp/SimpleAdmin.zip
 echo "Cleaning up..."
 echo "Extraction complete."
