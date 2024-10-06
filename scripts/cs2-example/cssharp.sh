@@ -19,7 +19,7 @@ echo "Download complete."
 
 # Step 2: Unarchive the CSSharp file
 echo "Extracting CSSharp..."
-unzip -q /tmp/CSSharp.zip -d "$SERVER_DIR"
+unzip -qo /tmp/CSSharp.zip -d "$SERVER_DIR"
 
 if [ $? -ne 0 ]; then
   echo "Error: Failed to extract CSSharp."
