@@ -6,7 +6,7 @@ S3_FILE_PATH="gameservers"
 S3_FILE="cs.configs.tar.gz"
 
 # Add AWS CLI to PATH
-export PATH=$PATH:/path/to/aws-cli
+export PATH=$PATH:/snap/bin/aws
 
 echo "Downloading config files from S3..."
 
