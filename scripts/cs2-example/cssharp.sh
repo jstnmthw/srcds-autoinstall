@@ -8,7 +8,7 @@ SERVER_DIR="/data/serverfiles/game/csgo"
 
 # Step 1: Download CSSharp
 echo "Downloading CSSharp from $CSSHARP_URL..."
-wget -q -O CSSharp.zip "$CSSHARP_URL"
+wget -q -O /tmp/CSSharp.zip "$CSSHARP_URL"
 
 if [ $? -ne 0 ]; then
   echo "Error: Failed to download CSSharp. Please check the CSSHARP_URL."
@@ -19,7 +19,7 @@ echo "Download complete."
 
 # Step 2: Unarchive the CSSharp file
 echo "Extracting CSSharp..."
-unzip -q CSSharp.zip -d "$SERVER_DIR"
+unzip -q /tmp/CSSharp.zip -d "$SERVER_DIR"
 
 if [ $? -ne 0 ]; then
   echo "Error: Failed to extract CSSharp."
@@ -27,6 +27,6 @@ if [ $? -ne 0 ]; then
 fi
 
 # Clean up the downloaded archive
-rm -f CSSharp.zip
+rm -f /tmp/CSSharp.zip
 echo "Cleaning up..."
 echo "Extraction complete."
