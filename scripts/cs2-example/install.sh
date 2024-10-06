@@ -52,7 +52,6 @@ echo "Info: Game server is running."
 # Install configuration files and restart the container
 echo "Info: Running configuration scripts inside the container..."
 docker exec -u linuxgsm "$CONTAINER" /scripts/cs2-example/metamod_update.sh
-docker exec -u linuxgsm "$CONTAINER" /scripts/cs2-example/metamod_write.sh
 docker exec -u linuxgsm "$CONTAINER" /scripts/cs2-example/cssharp.sh
 docker exec -u linuxgsm "$CONTAINER" /scripts/cs2-example/simple-admin.sh
 
