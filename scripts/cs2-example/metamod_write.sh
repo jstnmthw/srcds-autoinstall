@@ -1,22 +1,5 @@
 #!/bin/bash
 
-METAMOD_URL=https://mms.alliedmods.net/mmsdrop/2.0/mmsource-2.0.0-git1314-linux.tar.gz
-
-# Load environment variables from .env file 
-# if [ -f .env ]; then
-#   source .env
-# else
-#   echo "Error: .env file not found. Please create a .env file with your settings."
-#   exit 1
-# fi
-
-# Check if the METAMOD_URL environment variable is set
-if [ -z "$METAMOD_URL" ]; then
-  echo "Error: METAMOD_URL environment variable is not set."
-  echo "Please set METAMOD_URL to the MetaMod download URL."
-  exit 1
-fi
-
 # Define the server directory path
 SERVER_DIR="/data/serverfiles/game/csgo"
 GAMEINFO_FILE="$SERVER_DIR/gameinfo.gi"

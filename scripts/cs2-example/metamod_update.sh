@@ -1,6 +1,6 @@
 #!/bin/bash
 
-METAMOD_URL=https://mms.alliedmods.net/mmsdrop/2.0/mmsource-2.0.0-git1313-linux.tar.gz
+METAMOD_URL=https://mms.alliedmods.net/mmsdrop/2.0/mmsource-2.0.0-git1314-linux.tar.gz
 
 # Load environment variables from .env file 
 # if [ -f .env ]; then
