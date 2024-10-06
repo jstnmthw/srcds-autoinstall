@@ -27,6 +27,14 @@ restart: stop start
 install: check-script
 	"scripts/$(SCRIPT)/install.sh"
 
+# Pack up custom configs. Exclude .gitingore files
+pack: 
+	@tar -zvcf /tmp/cs.configs.tar.gz --exclude-vcs config/
+
+# Upload the custom configs
+upload: pack
+	"scripts/utils/s3-upload.sh"
+
 # Check if the script is set
 check-script:
 	@if [ -z "$(SCRIPT)" ]; then \
