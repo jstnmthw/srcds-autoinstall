@@ -1,19 +1,7 @@
 #!/bin/bash
 
-# Load environment variables from .env file 
-if [ -f .env ]; then
-  source .env
-else
-  echo "Error: .env file not found. Please create a .env file with your settings."
-  exit 1
-fi
-
-# Check if the CSSharp environment variable is set
-if [ -z "$CSSHARP_URL" ]; then
-  echo "Error: CSSHARP_URL environment variable is not set."
-  echo "Please set CSSHARP_URL to the CSSharp download URL."
-  exit 1
-fi
+# Set the CSSharp download URL
+CSSHARP_URL=https://github.com/roflmuffin/CounterStrikeSharp/archive/refs/tags/v276.tar.gz
 
 # Define the server directory path
 SERVER_DIR="/data/serverfiles/game/csgo"
