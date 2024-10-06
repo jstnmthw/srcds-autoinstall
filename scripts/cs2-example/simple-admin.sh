@@ -23,7 +23,7 @@ fi
 SERVER_DIR="/data/serverfiles/game/csgo"
 
 # Step 1.1: Download AnyBase Lib
-echo "Downloading AnyBase Lib from $ANYBASE_LIB_URL..."
+echo "Info: Downloading AnyBase Lib from $ANYBASE_LIB_URL..."
 wget -q -O /tmp/AnyBase.zip "$ANYBASE_LIB_URL"
 
 if [ $? -ne 0 ]; then
@@ -31,10 +31,10 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-echo "Download complete."
+echo "Info: Download complete."
 
 # Step 1.2: Unarchive the AnyBase file
-echo "Extracting AnyBase..."
+echo "Info: Extracting AnyBase..."
 unzip -qo /tmp/AnyBase.zip -d "$SERVER_DIR"
 
 if [ $? -ne 0 ]; then
@@ -44,11 +44,11 @@ fi
 
 # Step 1.3 Clean up the downloaded archive
 rm -f /tmp/AnyBase.zip
-echo "Cleaning up..."
-echo "Extraction complete."
+echo "Info: Cleaning up..."
+echo "Info: Extraction complete."
 
 # Step 2.1: Download Player Settings
-echo "Downloading Player Settings from $PLAYER_SETTINGS_URL..."
+echo "Info: Downloading Player Settings from $PLAYER_SETTINGS_URL..."
 wget -q -O /tmp/PlayerSettings.zip "$PLAYER_SETTINGS_URL"
 
 if [ $? -ne 0 ]; then
@@ -56,10 +56,10 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-echo "Download complete."
+echo "Info: Download complete."
 
 # Step 2.2: Unarchive the PlayerSettings file
-echo "Extracting PlayerSettings..."
+echo "Info: Extracting PlayerSettings..."
 unzip -qo /tmp/PlayerSettings.zip -d "$SERVER_DIR"
 
 if [ $? -ne 0 ]; then
@@ -69,11 +69,11 @@ fi
 
 # Step 2.3: Clean up the downloaded archive
 rm -f /tmp/PlayerSettings.zip
-echo "Cleaning up..."
-echo "Extraction complete."
+echo "Info: Cleaning up..."
+echo "Info: Extraction complete."
 
 # Step 3.1: Download Menu Manager
-echo "Downloading Menu Manager from $MENU_MANAGER_URL..."
+echo "Info: Downloading Menu Manager from $MENU_MANAGER_URL..."
 wget -q -O /tmp/MenuManager.zip "$MENU_MANAGER_URL"
 
 if [ $? -ne 0 ]; then
@@ -81,10 +81,10 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-echo "Download complete."
+echo "Info: Download complete."
 
 # Step 3.2: Unarchive the MenuManager file
-echo "Extracting MenuManager..."
+echo "Info: Extracting MenuManager..."
 unzip -qo /tmp/MenuManager.zip -d "$SERVER_DIR"
 
 if [ $? -ne 0 ]; then
@@ -94,11 +94,11 @@ fi
 
 # Step 3.3: Clean up the downloaded archive
 rm -f /tmp/MenuManager.zip
-echo "Cleaning up..."
-echo "Extraction complete."
+echo "Info: Cleaning up..."
+echo "Info: Extraction complete."
 
 # Step 4.1: Download Simple Admin
-echo "Downloading Simple Admin from $SIMPLE_ADMIN_URL..."
+echo "Info: Downloading Simple Admin from $SIMPLE_ADMIN_URL..."
 wget -q -O /tmp/SimpleAdmin.zip "$SIMPLE_ADMIN_URL"
 
 if [ $? -ne 0 ]; then
@@ -106,7 +106,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-echo "Download complete."
+echo "Info: Download complete."
 
 # Step 4.2: Unarchive the SimpleAdmin file
 echo "Extracting SimpleAdmin..."
@@ -119,5 +119,5 @@ fi
 
 # Step 4.3: Clean up the downloaded archive
 rm -f /tmp/SimpleAdmin.zip
-echo "Cleaning up..."
-echo "Extraction complete."
+echo "Info: Cleaning up..."
+echo "Info: Extraction complete."
