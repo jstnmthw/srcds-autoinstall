@@ -21,10 +21,10 @@ second_extension="${file_base_name##*.}"
 # Check if the file is a zip or tar file
 if [ "$file_extension" = "zip" ]; then
     echo "Unzipping the file..."
-    unzip -o /tmp/$S3_FILE -d $CONFIG_DIR
+    unzip -o /tmp/$S3_FILE -d ./config
 elif [ "$second_extension" = "tar" ]; then
     echo "Untarring the file..."
-    tar -xvf /tmp/$S3_FILE -C $CONFIG_DIR
+    tar -xvf /tmp/$S3_FILE -C ./config
 else
     echo "Error: The file is not a zip or tar file."
     exit 1
