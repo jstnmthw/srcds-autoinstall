@@ -4,6 +4,7 @@
 S3_BUCKET="archive-6"
 S3_FILE_PATH="gameservers"
 S3_FILE="cs.configs.tar.gz"
+CONFIG_DIR="~/srcds-autoinstall/config"
 
 echo "Downloading config files from S3..."
 
@@ -20,10 +21,10 @@ second_extension="${file_base_name##*.}"
 # Check if the file is a zip or tar file
 if [ "$file_extension" = "zip" ]; then
     echo "Unzipping the file..."
-    unzip -o /tmp/$S3_FILE -d ./
+    unzip -o /tmp/$S3_FILE -d $CONFIG_DIR
 elif [ "$second_extension" = "tar" ]; then
     echo "Untarring the file..."
-    tar -xvf /tmp/$S3_FILE -C ./
+    tar -xvf /tmp/$S3_FILE -C $CONFIG_DIR
 else
     echo "Error: The file is not a zip or tar file."
     exit 1
