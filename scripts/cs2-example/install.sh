@@ -53,9 +53,22 @@ echo "Info: Game server is running."
 echo "Info: Running configuration scripts inside the container..."
 docker exec -u linuxgsm "$CONTAINER" /scripts/cs2-example/metamod_update.sh
 docker exec -u linuxgsm "$CONTAINER" /scripts/cs2-example/metamod_write.sh
+docker exec -u linuxgsm "$CONTAINER" /scripts/cs2-example/cssharp.sh
 docker exec -u linuxgsm "$CONTAINER" /scripts/cs2-example/simple-admin.sh
+
+# We need to restart and wait until the game server is ready
+echo "Info: Restarting $CONTAINER..."
+docker-compose -f "$COMPOSE" restart "$CONTAINER"
+
+until docker exec -u linuxgsm "$CONTAINER" ./cs2server details | grep -q "STARTED"; do
+    echo "Info: Game server is not ready yet. Retrying in 30 seconds..."
+    sleep 30
+done
+
+# Download the game files and configure the server
 /bin/bash -c ./scripts/utils/s3-download.sh
 docker exec -u linuxgsm "$CONTAINER" /scripts/cs2-example/config.sh
 
+# Restart the container
 echo "Info: Restarting server..."
 docker-compose -f "$COMPOSE" restart "$CONTAINER"
