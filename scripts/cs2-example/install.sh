@@ -65,6 +65,8 @@ until docker exec -u linuxgsm "$CONTAINER" ./cs2server details | grep -q "STARTE
     sleep 30
 done
 
+sleep 30
+
 # Download the game files and configure the server
 /bin/bash -c ./scripts/utils/s3-download.sh
 docker exec -u linuxgsm "$CONTAINER" /scripts/cs2-example/config.sh
