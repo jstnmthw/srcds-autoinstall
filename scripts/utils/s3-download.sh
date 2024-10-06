@@ -5,6 +5,9 @@ S3_BUCKET="archive-6"
 S3_FILE_PATH="gameservers"
 S3_FILE="cs.configs.tar.gz"
 
+# Add AWS CLI to PATH
+export PATH=$PATH:/path/to/aws-cli
+
 echo "Downloading config files from S3..."
 
 # Use AWS CLI command to download the file from S3
