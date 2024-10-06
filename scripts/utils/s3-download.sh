@@ -8,7 +8,7 @@ S3_FILE="cs.configs.tar.gz"
 echo "Downloading config files from S3..."
 
 # Use AWS CLI command to download the file from S3
-if ! aws s3 cp s3://$S3_BUCKET/$S3_FILE_PATH/$S3_FILE /tmp/$S3_FILE; then
+if ! aws s3 cp s3://archive-6/gameservers/cs.configs.tar.gz /tmp/cs.configs.tar.gz; then
     echo "Error: Failed to download file from S3. Please check your S3 bucket and file path."
     exit 1
 fi
