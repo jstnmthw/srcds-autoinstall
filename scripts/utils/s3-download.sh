@@ -1,5 +1,10 @@
 #!/bin/bash -e
 
+# Set the required environment variables
+S3_BUCKET="archive-6"
+S3_FILE_PATH="gameservers"
+S3_FILE="cs-configs.zip"
+
 # Define an array with the names of the required environment variables
 # required_env_vars=(
 #     "S3_BUCKET"
