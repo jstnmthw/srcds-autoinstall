@@ -1,14 +1,14 @@
 #!/bin/bash -e
 
 # Define an array with the names of the required environment variables
-required_env_vars=(
-    "S3_BUCKET"
-    "S3_FILE_PATH"
-    "S3_FILE"
-    "AWS_REGION"
-    "AWS_ACCESS_KEY_ID"
-    "AWS_SECRET_ACCESS_KEY"
-)
+# required_env_vars=(
+#     "S3_BUCKET"
+#     "S3_FILE_PATH"
+#     "S3_FILE"
+#     "AWS_REGION"
+#     "AWS_ACCESS_KEY_ID"
+#     "AWS_SECRET_ACCESS_KEY"
+# )
 
 # Check if the required environment variables are set
 for var_name in "${required_env_vars[@]}"; do
