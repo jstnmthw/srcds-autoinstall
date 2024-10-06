@@ -21,7 +21,7 @@ if ! docker ps -a --format '{{.Names}}' | grep -Eq "^${CONTAINER}\$"; then
     ATTEMPT=1   # Initial attempt count
 
     # Retry loop for docker-compose up
-    until docker-compose -f "$COMPOSE" up -d "$CONTAINER"; do
+    until docker-compose -f "$COMPOSE" up -d; do
         if [ $ATTEMPT -ge $MAX_RETRIES ]; then
             echo "Error: Failed to bring up $CONTAINER after $ATTEMPT attempts."
             exit 1
