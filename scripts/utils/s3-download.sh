@@ -8,11 +8,7 @@ S3_FILE="cs.configs.tar.gz"
 echo "Downloading config files from S3..."
 
 # Use AWS CLI command to download the file from S3
-echo "s3://$S3_BUCKET/$S3_FILE_PATH/$S3_FILE"
-if ! aws s3 cp s3://$S3_BUCKET/$S3_FILE_PATH/$S3_FILE /tmp/$S3_FILE; then
-    echo "Error: Failed to download file from S3. Please check your S3 bucket and file path."
-    exit 1
-fi
+aws s3 cp s3://$S3_BUCKET/$S3_FILE_PATH/$S3_FILE /tmp/$S3_FILE
 
 echo "File downloaded successfully."
 
