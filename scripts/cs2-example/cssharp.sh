@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the CSSharp download URL
-CSSHARP_URL=https://github.com/roflmuffin/CounterStrikeSharp/archive/refs/tags/v276.tar.gz
+CSSHARP_URL=https://github.com/roflmuffin/CounterStrikeSharp/releases/download/v276/counterstrikesharp-with-runtime-build-276-linux-42dd270.zip
 
 # Define the server directory path
 SERVER_DIR="/data/serverfiles/game/csgo"
